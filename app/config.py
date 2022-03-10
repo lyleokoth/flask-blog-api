@@ -6,16 +6,24 @@ class BaseConfig(object):
     SECRET_KEY = 'secret_key'
     DEBUG = False
     TESTING = False 
-    SQLALCHEMY_TRACK_MODIFICATIONS = False
-    RESULTS_PER_PAGE = 10
 
 class DevelopmentConfig(BaseConfig):
     DEBUG = True
     TESTING = True
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join('app-development.db')
+    MONGODB_DB = 'flask-api'
+    MONGODB_HOST = '127.0.0.1'
+    MONGODB_PORT = 27017
+    MONGODB_USERNAME = ''
+    MONGODB_PASSWORD = ''
+    MONGODB_CONNECT = True
 
 class ProductionConfig(BaseConfig):
     SECRET_KEY = 'another_secret_key'
     DEBUG = False
     TESTING = False 
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join('app-production.db')
+    MONGODB_DB = 'flask-api'
+    MONGODB_HOST = '127.0.0.1'
+    MONGODB_PORT = 27017
+    MONGODB_USERNAME = ''
+    MONGODB_PASSWORD = ''
+    MONGODB_CONNECT = True

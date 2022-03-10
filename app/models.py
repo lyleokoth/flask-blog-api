@@ -1,3 +1,9 @@
-from flask_sqlalchemy import SQLAlchemy
+from app import db
 
-db = SQLAlchemy()
+class User(db.Document):
+    name = db.StringField()
+    email = db.StringField()
+    
+    def to_json(self):
+        return {"name": self.name,
+                "email": self.email}
