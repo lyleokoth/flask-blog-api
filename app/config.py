@@ -1,4 +1,5 @@
 import os
+import bcrypt
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -6,6 +7,7 @@ class BaseConfig(object):
     SECRET_KEY = 'secret_key'
     DEBUG = False
     TESTING = False 
+    SALT = bcrypt.gensalt()
 
 class DevelopmentConfig(BaseConfig):
     DEBUG = True
